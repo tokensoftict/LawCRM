@@ -1,0 +1,90 @@
+<div class="container w-full mx-auto">
+    <section class="antialiased bg-gray-100 text-gray-600 mt-14">
+        <div class="flex flex-col justify-center h-full">
+            <!-- Table -->
+            <div class="w-full  mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+                <header class="px-5 flex py-4 border-b border-gray-100">
+
+                    <h2 class="font-semibold w-1/5 text-gray-800 pt-2">Customer List(s)</h2>
+
+                    <div class="w-1/3">
+                    <input type="text"  @input="productSearch" placeholder="Filter Customer By Last Name" v-model="search" class=" w-1/2  bg-white border border-gray-300 text-gray-900 text-sm  rounded-lg focus:ring-blue-900 focus:border-blue-500 block w-full p-2.5 ">
+                    </div>
+
+                    <div class="w-1/3"></div>
+
+                    <router-link to="/customer/add"  type="button" class="text-white   bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2  dark:focus:ring-blue-800">
+                        New Customer &nbsp; <svg class="w-4 h-4 mr-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path></svg>
+                        <span class="sr-only">Icon description</span>
+                    </router-link>
+
+                </header>
+
+
+                <div class="p-3">
+                    <div class="overflow-x-auto">
+                        <table class="table-auto w-full">
+                            <thead class="text-xs font-semibold uppercase text-gray-900 bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Full Name</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Email Address</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Case Count</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Profile Date</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Legal Counsel</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Date Of Birth</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-right">Action</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-800">
+
+                            <tr v-for="customer in customers" :key="customer.id">
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" :src="customer.image" width="40" height="40" :alt="customer.firstname+' '+customer.lastname"></div>
+                                        <div class="font-medium text-sm">{{ customer.firstname }} {{ customer.lastname }}</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left"><a :href="'mailto:'+customer.email">{{ customer.email }}</a></div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-center">{{ customer.customer_cases_count }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-sm">{{ customer.profile_date }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-sm">{{ customer.legal_counsel }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-sm">{{ customer.dob }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap text-right">
+                                    <router-link class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" :to="'/customer/'+customer.id+'/profile'">Profile</router-link>
+
+                                    <router-link class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"  :to="'/customer/'+customer.id+'/edit'" >Edit Customer</router-link>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
