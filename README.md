@@ -65,7 +65,7 @@
 
 ## Sending Emails To Customers With No Passport
 
-- The instruction in the email says the system should send Passport Reminder Emails to customer with no passport every three days so running command `php artisan schedule:run`, should trigger the action, but since we might not want wait for three days to test this feature running `php artisan check:passport` will trigger the action immediately a customer is profiled on the system
+- The instruction in the email says the system should send Passport Reminder Emails to customer with no passport every three days so running command `php artisan schedule:run`, should trigger the action, but since we might not want to wait for three days to test this feature running `php artisan check:passport` will trigger the action immediately after customer is profiled on the system
 - Run `php artisan check:passport` to trigger Passport Reminder Email.
 - Since the emails are queued in the database, Please run `php artisan queue:work` to send or queued email
 
