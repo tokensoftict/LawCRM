@@ -27,7 +27,7 @@ class CustomerResource extends JsonResource
         \Arr::set($data,'passport', $this->passport);
         \Arr::set($data,'image', $this->image);
         \Arr::set($data,'customer_cases_count', $this->customer_cases_count);
-        \Arr::set($data,'cases', $this->customer_cases);
+        \Arr::set($data,'cases', $this->customer_cases()->orderBy('id', 'DESC')->get());
 
 
         return $data;

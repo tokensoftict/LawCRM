@@ -26,7 +26,7 @@ class CustomerRequest extends FormRequest
         return [
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|unique:customers,email,'.$this->customer->id,
+            'email' => 'required|unique:customers,email'.(isset($this->customer->id) ? ",".$this->customer->id : ""),
             'profile_date' => 'required',
             'dob' => 'required',
             'legal_counsel' => 'required',

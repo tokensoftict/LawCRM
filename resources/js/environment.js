@@ -4,7 +4,7 @@ export default {
     },
 
     production : {
-        baseUrl : 'PRODUCTION URL GOES HERE',
+        baseUrl : 'http://127.0.0.1:8000/api/', //Suppose to be production URL BUT Adding testing for Now
     },
 
 }

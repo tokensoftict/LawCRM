@@ -3,6 +3,7 @@
 <script>
 
 import {CustomerService} from "../customer-service";
+import { initFlowbite } from 'flowbite'
 
 export default {
 
@@ -44,12 +45,15 @@ export default {
 
             let data = {'case_details' : this.case_details};
 
+            this.case_details_error = "";
+
             this.customerService.addCase(this.id, data)
                 .then((response) => {
                     this.data = response.data.data
                     this.cases = response.data.data.cases
                     this.loading = false
                     this.$refs.close.click();
+                    this.case_details = ""
                     this.$helper.success(this.$notify, 'Law CRM', 'Customer Case has been added successfully!')
                 });
 
@@ -72,6 +76,7 @@ export default {
     props : ["id"],
 
     mounted() {
+        initFlowbite();
         this.getProfile();
     }
 }

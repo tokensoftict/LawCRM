@@ -52,28 +52,28 @@
                             <tbody class="text-sm divide-y divide-gray-800">
 
                             <tr v-for="customer in customers" :key="customer.id">
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" :src="customer.image" width="40" height="40" :alt="customer.firstname+' '+customer.lastname"></div>
+                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" :src="customer.image" width="100" height="100" :alt="customer.firstname+' '+customer.lastname"></div>
                                         <div class="font-medium text-sm">{{ customer.firstname }} {{ customer.lastname }}</div>
                                     </div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="text-left"><a :href="'mailto:'+customer.email">{{ customer.email }}</a></div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="text-center">{{ customer.customer_cases_count }}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="text-left font-medium text-sm">{{ customer.profile_date }}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="text-left font-medium text-sm">{{ customer.legal_counsel }}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td class="p-3 whitespace-nowrap">
                                     <div class="text-left font-medium text-sm">{{ customer.dob }}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap text-right">
+                                <td class="p-3 whitespace-nowrap text-right">
                                     <router-link class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" :to="'/customer/'+customer.id+'/profile'">Profile</router-link>
 
                                     <router-link class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"  :to="'/customer/'+customer.id+'/edit'" >Edit Customer</router-link>

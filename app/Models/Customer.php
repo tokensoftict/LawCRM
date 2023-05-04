@@ -9,6 +9,7 @@ namespace App\Models;
 use App\Notifications\WelcomeCustomerNotification;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -33,7 +34,7 @@ use Illuminate\Notifications\Notifiable;
 class Customer extends Model
 {
 
-    use Notifiable;
+    use Notifiable, HasFactory;
 
 	protected $table = 'customers';
 
